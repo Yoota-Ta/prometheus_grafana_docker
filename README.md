@@ -26,7 +26,7 @@ scrape_configs:
       - targets: ['localhost:9090']
 
       
-  - job_name: 'kuai_admin'
+  - job_name: 'node_1'
     static_configs:
       - targets: ['ip:9100']  # 根据实际情况设置
     relabel_configs:
@@ -34,7 +34,7 @@ scrape_configs:
         target_label: instance
         replacement: 'ip'
         
-  - job_name: 'kuai_sql'
+  - job_name: 'node_2'
     static_configs:
       - targets: ['ip:9100']  # 根据实际情况设置
     relabel_configs:
