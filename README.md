@@ -28,23 +28,23 @@ scrape_configs:
       
   - job_name: 'kuai_admin'
     static_configs:
-      - targets: ['38.6.179.81:9100']  # 根据实际情况设置
+      - targets: ['ip:9100']  # 根据实际情况设置
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance
-        replacement: '38.6.179.81'
+        replacement: 'ip'
         
   - job_name: 'kuai_sql'
     static_configs:
-      - targets: ['38.6.179.105:9100']  # 根据实际情况设置
+      - targets: ['ip:9100']  # 根据实际情况设置
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance
-        replacement: '38.6.179.105'       
+        replacement: 'ip'       
         
   - job_name: 'nginx'
     static_configs:
-      - targets: ['38.6.179.81:9113']
+      - targets: ['ip:9113']
 
 ```
 
