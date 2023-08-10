@@ -25,13 +25,27 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'node-exporter'
+      
+  - job_name: 'kuai_admin'
     static_configs:
-      - targets: ['103.163.47.248:9100']
-
+      - targets: ['38.6.179.81:9100']  # 根据实际情况设置
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: '38.6.179.81'
+        
+  - job_name: 'kuai_sql'
+    static_configs:
+      - targets: ['38.6.179.105:9100']  # 根据实际情况设置
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: '38.6.179.105'       
+        
   - job_name: 'nginx'
     static_configs:
-      - targets: ['103.163.47.248:9113']
+      - targets: ['38.6.179.81:9113']
+
 ```
 
 
