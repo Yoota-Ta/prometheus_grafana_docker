@@ -1,0 +1,15 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname', 'severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'dingtalk'
+
+receivers:
+  - name: 'dingtalk'
+    dingtalk_configs:
+      - api_url: 'https://oapi.dingtalk.com/robot/send?access_token=YOUR_ACCESS_TOKEN'
+        send_resolved: true
